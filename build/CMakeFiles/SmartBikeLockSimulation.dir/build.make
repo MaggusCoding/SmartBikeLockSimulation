@@ -72,24 +72,10 @@ include CMakeFiles/SmartBikeLockSimulation.dir/flags.make
 CMakeFiles/SmartBikeLockSimulation.dir/codegen:
 .PHONY : CMakeFiles/SmartBikeLockSimulation.dir/codegen
 
-CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/flags.make
-CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o: /home/markus/SmartBikeLockSimulation/src/NeuralNetwork/NeuralNetwork.cpp
-CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o -MF CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o.d -o CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o -c /home/markus/SmartBikeLockSimulation/src/NeuralNetwork/NeuralNetwork.cpp
-
-CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markus/SmartBikeLockSimulation/src/NeuralNetwork/NeuralNetwork.cpp > CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.i
-
-CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markus/SmartBikeLockSimulation/src/NeuralNetwork/NeuralNetwork.cpp -o CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.s
-
 CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/flags.make
 CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o: /home/markus/SmartBikeLockSimulation/src/main.cpp
 CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o -MF CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o.d -o CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o -c /home/markus/SmartBikeLockSimulation/src/main.cpp
 
 CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.i: cmake_force
@@ -100,20 +86,98 @@ CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markus/SmartBikeLockSimulation/src/main.cpp -o CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.s
 
+CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/flags.make
+CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o: /home/markus/SmartBikeLockSimulation/src/NeuralNetwork/NeuralNetwork.cpp
+CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o -MF CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o.d -o CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o -c /home/markus/SmartBikeLockSimulation/src/NeuralNetwork/NeuralNetwork.cpp
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markus/SmartBikeLockSimulation/src/NeuralNetwork/NeuralNetwork.cpp > CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.i
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markus/SmartBikeLockSimulation/src/NeuralNetwork/NeuralNetwork.cpp -o CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.s
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/flags.make
+CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.o: /home/markus/SmartBikeLockSimulation/src/FeatureExtractor/FeatureExtractor.cpp
+CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.o -MF CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.o.d -o CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.o -c /home/markus/SmartBikeLockSimulation/src/FeatureExtractor/FeatureExtractor.cpp
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markus/SmartBikeLockSimulation/src/FeatureExtractor/FeatureExtractor.cpp > CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.i
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markus/SmartBikeLockSimulation/src/FeatureExtractor/FeatureExtractor.cpp -o CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.s
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/flags.make
+CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o: /home/markus/SmartBikeLockSimulation/src/DataLoader/DataLoader.cpp
+CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o -MF CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o.d -o CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o -c /home/markus/SmartBikeLockSimulation/src/DataLoader/DataLoader.cpp
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markus/SmartBikeLockSimulation/src/DataLoader/DataLoader.cpp > CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.i
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markus/SmartBikeLockSimulation/src/DataLoader/DataLoader.cpp -o CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.s
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/flags.make
+CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o: /home/markus/SmartBikeLockSimulation/src/DataPreprocessor/DataPreprocessor.cpp
+CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o -MF CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o.d -o CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o -c /home/markus/SmartBikeLockSimulation/src/DataPreprocessor/DataPreprocessor.cpp
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markus/SmartBikeLockSimulation/src/DataPreprocessor/DataPreprocessor.cpp > CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.i
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markus/SmartBikeLockSimulation/src/DataPreprocessor/DataPreprocessor.cpp -o CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.s
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/flags.make
+CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o: /home/markus/SmartBikeLockSimulation/src/Metrics/Metrics.cpp
+CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o -MF CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o.d -o CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o -c /home/markus/SmartBikeLockSimulation/src/Metrics/Metrics.cpp
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markus/SmartBikeLockSimulation/src/Metrics/Metrics.cpp > CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.i
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markus/SmartBikeLockSimulation/src/Metrics/Metrics.cpp -o CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.s
+
 # Object files for target SmartBikeLockSimulation
 SmartBikeLockSimulation_OBJECTS = \
+"CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o" \
 "CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o" \
-"CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o"
+"CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.o" \
+"CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o" \
+"CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o" \
+"CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o"
 
 # External object files for target SmartBikeLockSimulation
 SmartBikeLockSimulation_EXTERNAL_OBJECTS =
 
-SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o
 SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o
+SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o
+SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.o
+SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o
+SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o
+SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o
 SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/build.make
 SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/compiler_depend.ts
 SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable SmartBikeLockSimulation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SmartBikeLockSimulation"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SmartBikeLockSimulation.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

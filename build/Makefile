@@ -129,6 +129,102 @@ SmartBikeLockSimulation/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/build
 .PHONY : SmartBikeLockSimulation/fast
 
+src/DataLoader/DataLoader.o: src/DataLoader/DataLoader.cpp.o
+.PHONY : src/DataLoader/DataLoader.o
+
+# target to build an object file
+src/DataLoader/DataLoader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o
+.PHONY : src/DataLoader/DataLoader.cpp.o
+
+src/DataLoader/DataLoader.i: src/DataLoader/DataLoader.cpp.i
+.PHONY : src/DataLoader/DataLoader.i
+
+# target to preprocess a source file
+src/DataLoader/DataLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.i
+.PHONY : src/DataLoader/DataLoader.cpp.i
+
+src/DataLoader/DataLoader.s: src/DataLoader/DataLoader.cpp.s
+.PHONY : src/DataLoader/DataLoader.s
+
+# target to generate assembly for a file
+src/DataLoader/DataLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.s
+.PHONY : src/DataLoader/DataLoader.cpp.s
+
+src/DataPreprocessor/DataPreprocessor.o: src/DataPreprocessor/DataPreprocessor.cpp.o
+.PHONY : src/DataPreprocessor/DataPreprocessor.o
+
+# target to build an object file
+src/DataPreprocessor/DataPreprocessor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o
+.PHONY : src/DataPreprocessor/DataPreprocessor.cpp.o
+
+src/DataPreprocessor/DataPreprocessor.i: src/DataPreprocessor/DataPreprocessor.cpp.i
+.PHONY : src/DataPreprocessor/DataPreprocessor.i
+
+# target to preprocess a source file
+src/DataPreprocessor/DataPreprocessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.i
+.PHONY : src/DataPreprocessor/DataPreprocessor.cpp.i
+
+src/DataPreprocessor/DataPreprocessor.s: src/DataPreprocessor/DataPreprocessor.cpp.s
+.PHONY : src/DataPreprocessor/DataPreprocessor.s
+
+# target to generate assembly for a file
+src/DataPreprocessor/DataPreprocessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.s
+.PHONY : src/DataPreprocessor/DataPreprocessor.cpp.s
+
+src/FeatureExtractor/FeatureExtractor.o: src/FeatureExtractor/FeatureExtractor.cpp.o
+.PHONY : src/FeatureExtractor/FeatureExtractor.o
+
+# target to build an object file
+src/FeatureExtractor/FeatureExtractor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.o
+.PHONY : src/FeatureExtractor/FeatureExtractor.cpp.o
+
+src/FeatureExtractor/FeatureExtractor.i: src/FeatureExtractor/FeatureExtractor.cpp.i
+.PHONY : src/FeatureExtractor/FeatureExtractor.i
+
+# target to preprocess a source file
+src/FeatureExtractor/FeatureExtractor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.i
+.PHONY : src/FeatureExtractor/FeatureExtractor.cpp.i
+
+src/FeatureExtractor/FeatureExtractor.s: src/FeatureExtractor/FeatureExtractor.cpp.s
+.PHONY : src/FeatureExtractor/FeatureExtractor.s
+
+# target to generate assembly for a file
+src/FeatureExtractor/FeatureExtractor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.s
+.PHONY : src/FeatureExtractor/FeatureExtractor.cpp.s
+
+src/Metrics/Metrics.o: src/Metrics/Metrics.cpp.o
+.PHONY : src/Metrics/Metrics.o
+
+# target to build an object file
+src/Metrics/Metrics.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o
+.PHONY : src/Metrics/Metrics.cpp.o
+
+src/Metrics/Metrics.i: src/Metrics/Metrics.cpp.i
+.PHONY : src/Metrics/Metrics.i
+
+# target to preprocess a source file
+src/Metrics/Metrics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.i
+.PHONY : src/Metrics/Metrics.cpp.i
+
+src/Metrics/Metrics.s: src/Metrics/Metrics.cpp.s
+.PHONY : src/Metrics/Metrics.s
+
+# target to generate assembly for a file
+src/Metrics/Metrics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.s
+.PHONY : src/Metrics/Metrics.cpp.s
+
 src/NeuralNetwork/NeuralNetwork.o: src/NeuralNetwork/NeuralNetwork.cpp.o
 .PHONY : src/NeuralNetwork/NeuralNetwork.o
 
@@ -186,6 +282,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SmartBikeLockSimulation"
+	@echo "... src/DataLoader/DataLoader.o"
+	@echo "... src/DataLoader/DataLoader.i"
+	@echo "... src/DataLoader/DataLoader.s"
+	@echo "... src/DataPreprocessor/DataPreprocessor.o"
+	@echo "... src/DataPreprocessor/DataPreprocessor.i"
+	@echo "... src/DataPreprocessor/DataPreprocessor.s"
+	@echo "... src/FeatureExtractor/FeatureExtractor.o"
+	@echo "... src/FeatureExtractor/FeatureExtractor.i"
+	@echo "... src/FeatureExtractor/FeatureExtractor.s"
+	@echo "... src/Metrics/Metrics.o"
+	@echo "... src/Metrics/Metrics.i"
+	@echo "... src/Metrics/Metrics.s"
 	@echo "... src/NeuralNetwork/NeuralNetwork.o"
 	@echo "... src/NeuralNetwork/NeuralNetwork.i"
 	@echo "... src/NeuralNetwork/NeuralNetwork.s"

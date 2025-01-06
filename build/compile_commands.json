@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/markus/SmartBikeLockSimulation/build",
+  "command": "/usr/bin/g++  -I/home/markus/SmartBikeLockSimulation/include -g -std=gnu++17 -o CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o -c /home/markus/SmartBikeLockSimulation/src/NeuralNetwork/NeuralNetwork.cpp",
+  "file": "/home/markus/SmartBikeLockSimulation/src/NeuralNetwork/NeuralNetwork.cpp",
+  "output": "CMakeFiles/SmartBikeLockSimulation.dir/src/NeuralNetwork/NeuralNetwork.cpp.o"
+},
+{
+  "directory": "/home/markus/SmartBikeLockSimulation/build",
+  "command": "/usr/bin/g++  -I/home/markus/SmartBikeLockSimulation/include -g -std=gnu++17 -o CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o -c /home/markus/SmartBikeLockSimulation/src/main.cpp",
+  "file": "/home/markus/SmartBikeLockSimulation/src/main.cpp",
+  "output": "CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o"
+}
+]

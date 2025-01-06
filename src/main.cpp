@@ -76,7 +76,7 @@ int main() {
         std::cout << "Output layer: " << topology[3] << " neurons\n\n";
         
         // Training parameters
-        const int EPOCHS = 2000;  // Increased epochs
+        const int EPOCHS = 3000;  // Increased epochs
         const size_t SAMPLES_PER_CLASS = 4;  // We'll get 4 samples per class = 12 total
         const int EVAL_INTERVAL = 100;
         float learning_rate = 0.01f;  // Reduced initial learning rate

@@ -156,6 +156,34 @@ CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markus/SmartBikeLockSimulation/src/Metrics/Metrics.cpp -o CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.s
 
+CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/flags.make
+CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o: /home/markus/SmartBikeLockSimulation/src/FederatedClient/FederatedClient.cpp
+CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o -MF CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o.d -o CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o -c /home/markus/SmartBikeLockSimulation/src/FederatedClient/FederatedClient.cpp
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markus/SmartBikeLockSimulation/src/FederatedClient/FederatedClient.cpp > CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.i
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markus/SmartBikeLockSimulation/src/FederatedClient/FederatedClient.cpp -o CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.s
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/flags.make
+CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o: /home/markus/SmartBikeLockSimulation/src/FederatedServer/FederatedServer.cpp
+CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o: CMakeFiles/SmartBikeLockSimulation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o -MF CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o.d -o CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o -c /home/markus/SmartBikeLockSimulation/src/FederatedServer/FederatedServer.cpp
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markus/SmartBikeLockSimulation/src/FederatedServer/FederatedServer.cpp > CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.i
+
+CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markus/SmartBikeLockSimulation/src/FederatedServer/FederatedServer.cpp -o CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.s
+
 # Object files for target SmartBikeLockSimulation
 SmartBikeLockSimulation_OBJECTS = \
 "CMakeFiles/SmartBikeLockSimulation.dir/src/main.cpp.o" \
@@ -163,7 +191,9 @@ SmartBikeLockSimulation_OBJECTS = \
 "CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.o" \
 "CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o" \
 "CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o" \
-"CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o"
+"CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o" \
+"CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o" \
+"CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o"
 
 # External object files for target SmartBikeLockSimulation
 SmartBikeLockSimulation_EXTERNAL_OBJECTS =
@@ -174,10 +204,12 @@ SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtra
 SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/DataLoader/DataLoader.cpp.o
 SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/DataPreprocessor/DataPreprocessor.cpp.o
 SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o
+SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o
+SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o
 SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/build.make
 SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/compiler_depend.ts
 SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SmartBikeLockSimulation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable SmartBikeLockSimulation"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SmartBikeLockSimulation.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

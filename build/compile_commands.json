@@ -34,5 +34,17 @@
   "command": "/usr/bin/g++  -I/home/markus/SmartBikeLockSimulation/include -g -std=gnu++17 -o CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o -c /home/markus/SmartBikeLockSimulation/src/Metrics/Metrics.cpp",
   "file": "/home/markus/SmartBikeLockSimulation/src/Metrics/Metrics.cpp",
   "output": "CMakeFiles/SmartBikeLockSimulation.dir/src/Metrics/Metrics.cpp.o"
+},
+{
+  "directory": "/home/markus/SmartBikeLockSimulation/build",
+  "command": "/usr/bin/g++  -I/home/markus/SmartBikeLockSimulation/include -g -std=gnu++17 -o CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o -c /home/markus/SmartBikeLockSimulation/src/FederatedClient/FederatedClient.cpp",
+  "file": "/home/markus/SmartBikeLockSimulation/src/FederatedClient/FederatedClient.cpp",
+  "output": "CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o"
+},
+{
+  "directory": "/home/markus/SmartBikeLockSimulation/build",
+  "command": "/usr/bin/g++  -I/home/markus/SmartBikeLockSimulation/include -g -std=gnu++17 -o CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o -c /home/markus/SmartBikeLockSimulation/src/FederatedServer/FederatedServer.cpp",
+  "file": "/home/markus/SmartBikeLockSimulation/src/FederatedServer/FederatedServer.cpp",
+  "output": "CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o"
 }
 ]

@@ -4,27 +4,32 @@
 #include "NeuralNetwork/NeuralNetwork.h"
 #include "DataPreprocessor/DataPreprocessor.h"
 #include <memory>
-#include <string>
+#include <random>
 
 class FederatedClient {
 public:
-    FederatedClient(const std::vector<size_t>& topology, 
-                   const std::vector<MotionSample>& local_dataset,
-                   const std::string& client_id);
+    // Initialize with network topology and preprocessor
+    FederatedClient(const std::vector<size_t>& topology, std::shared_ptr<DataPreprocessor> preprocessor);
     
-    // Training methods
-    void train_epoch(float learning_rate);
-    
-    // Model synchronization
+    // Core FL operations
+    void train_on_random_sample(float learning_rate);
+    void train_on_sample(const std::vector<float>& features, 
+                        const std::vector<float>& target,
+                        float learning_rate);
     std::vector<float> get_weights() const;
     void set_weights(const std::vector<float>& weights);
     
-    // Evaluation
-    float evaluate() const;
+    // Inference
+    std::vector<float> predict(const std::vector<float>& features);
     
+    // Access to neural network for evaluation
+    const NeuralNetwork& get_network() const { return network; }
+    NeuralNetwork& get_network() { return network; }
+
 private:
-    std::string client_id;
-    std::unique_ptr<NeuralNetwork> network;
-    DataPreprocessor data_preprocessor;
+    NeuralNetwork network;
+    std::shared_ptr<DataPreprocessor> preprocessor;
+    std::mt19937 rng;
 };
+
 #endif

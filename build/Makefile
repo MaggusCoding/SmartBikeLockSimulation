@@ -201,6 +201,54 @@ src/FeatureExtractor/FeatureExtractor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/FeatureExtractor/FeatureExtractor.cpp.s
 .PHONY : src/FeatureExtractor/FeatureExtractor.cpp.s
 
+src/FederatedClient/FederatedClient.o: src/FederatedClient/FederatedClient.cpp.o
+.PHONY : src/FederatedClient/FederatedClient.o
+
+# target to build an object file
+src/FederatedClient/FederatedClient.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.o
+.PHONY : src/FederatedClient/FederatedClient.cpp.o
+
+src/FederatedClient/FederatedClient.i: src/FederatedClient/FederatedClient.cpp.i
+.PHONY : src/FederatedClient/FederatedClient.i
+
+# target to preprocess a source file
+src/FederatedClient/FederatedClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.i
+.PHONY : src/FederatedClient/FederatedClient.cpp.i
+
+src/FederatedClient/FederatedClient.s: src/FederatedClient/FederatedClient.cpp.s
+.PHONY : src/FederatedClient/FederatedClient.s
+
+# target to generate assembly for a file
+src/FederatedClient/FederatedClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedClient/FederatedClient.cpp.s
+.PHONY : src/FederatedClient/FederatedClient.cpp.s
+
+src/FederatedServer/FederatedServer.o: src/FederatedServer/FederatedServer.cpp.o
+.PHONY : src/FederatedServer/FederatedServer.o
+
+# target to build an object file
+src/FederatedServer/FederatedServer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.o
+.PHONY : src/FederatedServer/FederatedServer.cpp.o
+
+src/FederatedServer/FederatedServer.i: src/FederatedServer/FederatedServer.cpp.i
+.PHONY : src/FederatedServer/FederatedServer.i
+
+# target to preprocess a source file
+src/FederatedServer/FederatedServer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.i
+.PHONY : src/FederatedServer/FederatedServer.cpp.i
+
+src/FederatedServer/FederatedServer.s: src/FederatedServer/FederatedServer.cpp.s
+.PHONY : src/FederatedServer/FederatedServer.s
+
+# target to generate assembly for a file
+src/FederatedServer/FederatedServer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.s
+.PHONY : src/FederatedServer/FederatedServer.cpp.s
+
 src/Metrics/Metrics.o: src/Metrics/Metrics.cpp.o
 .PHONY : src/Metrics/Metrics.o
 
@@ -291,6 +339,12 @@ help:
 	@echo "... src/FeatureExtractor/FeatureExtractor.o"
 	@echo "... src/FeatureExtractor/FeatureExtractor.i"
 	@echo "... src/FeatureExtractor/FeatureExtractor.s"
+	@echo "... src/FederatedClient/FederatedClient.o"
+	@echo "... src/FederatedClient/FederatedClient.i"
+	@echo "... src/FederatedClient/FederatedClient.s"
+	@echo "... src/FederatedServer/FederatedServer.o"
+	@echo "... src/FederatedServer/FederatedServer.i"
+	@echo "... src/FederatedServer/FederatedServer.s"
 	@echo "... src/Metrics/Metrics.o"
 	@echo "... src/Metrics/Metrics.i"
 	@echo "... src/Metrics/Metrics.s"

@@ -15,6 +15,8 @@ set(SOURCES
     src/DataLoader/DataLoader.cpp
     src/DataPreprocessor/DataPreprocessor.cpp
     src/Metrics/Metrics.cpp
+    src/FederatedClient/FederatedClient.cpp
+    src/FederatedServer/FederatedServer.cpp
 )
 
 # Create executable

@@ -3,51 +3,46 @@
 #include "FeatureExtractor/FeatureExtractor.h"
 #include "DataPreprocessor/DataPreprocessor.h"
 #include "Metrics/Metrics.h"
+#include "FederatedClient/FederatedClient.h"
+#include "FederatedServer/FederatedServer.h"
 #include <iostream>
 #include <iomanip>
+#include <memory>
+#include <vector>
 
-void print_training_sample(const TrainingSample& sample) {
-    std::cout << "Features: ";
-    for (float f : sample.features) {
-        std::cout << std::fixed << std::setprecision(4) << f << " ";
+void print_vector(const std::vector<float>& vec, const std::string& label) {
+    std::cout << label << ": [";
+    for (size_t i = 0; i < vec.size(); i++) {
+        std::cout << std::fixed << std::setprecision(4) << vec[i];
+        if (i < vec.size() - 1) std::cout << ", ";
     }
-    std::cout << "\nTarget: ";
-    for (float t : sample.target) {
-        std::cout << std::fixed << std::setprecision(0) << t << " ";
-    }
-    std::cout << "\n";
+    std::cout << "]\n";
 }
 
-void evaluate_model(NeuralNetwork& nn, const std::vector<TrainingSample>& test_set) {
-    std::vector<std::vector<float>> predictions;
-    std::vector<std::vector<float>> targets;
-    
-    // Get predictions for test set
-    for (const auto& sample : test_set) {
-        predictions.push_back(nn.forward(sample.features));
-        targets.push_back(sample.target);
+void evaluate_client(size_t client_idx, FederatedClient& client, 
+                    const TrainingSample& test_sample) {
+    auto pred = client.predict(test_sample.features);
+    std::cout << "Client " << client_idx << ":\n";
+    print_vector(pred, "Prediction");
+}
+
+void train_clients_iid(std::vector<std::unique_ptr<FederatedClient>>& clients,
+                      std::shared_ptr<DataPreprocessor> preprocessor,
+                      float learning_rate,
+                      size_t samples_per_client) {
+    for (size_t i = 0; i < samples_per_client; i++) {
+        // Get balanced batch
+        auto balanced_batch = preprocessor->get_balanced_batch(3);  // 1 sample per class
+        
+        if (!balanced_batch.empty()) {
+            // Each client gets a random sample from this balanced set
+            for (auto& client : clients) {
+                size_t random_idx = rand() % balanced_batch.size();
+                const auto& sample = balanced_batch[random_idx];
+                client->train_on_sample(sample.features, sample.target, learning_rate);
+            }
+        }
     }
-    
-    // Calculate metrics
-    float acc = Metrics::accuracy(predictions, targets);
-    auto conf_matrix = Metrics::confusion_matrix(predictions, targets);
-    auto auc_scores = Metrics::roc_auc(predictions, targets);
-    auto f1 = Metrics::f1_scores(conf_matrix);
-    
-    std::cout << "\nModel Evaluation:\n";
-    std::cout << "Accuracy: " << std::fixed << std::setprecision(4) << acc << "\n";
-    
-    Metrics::print_confusion_matrix(conf_matrix);
-    
-    std::cout << "\nROC AUC Scores:\n";
-    std::cout << "Class 0: " << auc_scores[0] << "\n";
-    std::cout << "Class 1: " << auc_scores[1] << "\n";
-    std::cout << "Class 2: " << auc_scores[2] << "\n";
-    
-    std::cout << "\nF1 Scores:\n";
-    std::cout << "Class 0: " << f1[0] << "\n";
-    std::cout << "Class 1: " << f1[1] << "\n";
-    std::cout << "Class 2: " << f1[2] << "\n";
 }
 
 int main() {
@@ -58,89 +53,72 @@ int main() {
         std::cout << "Loaded " << dataset.size() << " samples\n\n";
         
         // Prepare data for training
-        DataPreprocessor preprocessor;
-        preprocessor.prepare_dataset(dataset);
+        auto preprocessor = std::make_shared<DataPreprocessor>();
+        preprocessor->prepare_dataset(dataset);
         
-        // Get test set early
-        auto test_set = preprocessor.get_test_set();
-        std::cout << "Test set size: " << test_set.size() << " samples\n";
+        // Create neural network topology
+        std::vector<size_t> topology = {11, 80, 60, 3};
         
-        // Create neural network
-        std::vector<size_t> topology = {11, 50, 60, 3};  // Matching your Arduino implementation
-        NeuralNetwork nn(topology);
+        // Create federated components
+        const size_t NUM_CLIENTS = 1;
+        const size_t TRAINING_SAMPLES_PER_ROUND = 10000;  // Each client will see this many samples
+        const float LEARNING_RATE = 0.5f;
+        const int FL_ROUNDS = 1;
+
+        FederatedServer server;
+        std::vector<std::unique_ptr<FederatedClient>> clients;
         
-        std::cout << "\nTraining configuration:\n";
-        std::cout << "Input features: " << topology[0] << "\n";
-        std::cout << "Hidden layer 1: " << topology[1] << " neurons\n";
-        std::cout << "Hidden layer 2: " << topology[2] << " neurons\n";
-        std::cout << "Output layer: " << topology[3] << " neurons\n\n";
-        
-        // Training parameters
-        const int EPOCHS = 1000;  // Increased epochs
-        const size_t SAMPLES_PER_CLASS = 4;  // We'll get 4 samples per class = 12 total
-        const int EVAL_INTERVAL = 100;
-        float learning_rate = 0.01f;  // Reduced initial learning rate
-        
-        std::cout << "Starting training...\n";
-        float best_accuracy = 0.0f;
-        int epochs_without_improvement = 0;
-        
-        for (int epoch = 0; epoch < EPOCHS; epoch++) {
-            // Get balanced batch
-            auto batch = preprocessor.get_balanced_batch(SAMPLES_PER_CLASS);
-            float epoch_error = 0.0f;
-            
-            // Train on batch
-            for (const auto& sample : batch) {
-                auto output = nn.forward(sample.features);
-                nn.train(sample.features, sample.target, learning_rate);
-                
-                // Calculate error
-                float error = 0.0f;
-                for (size_t i = 0; i < output.size(); i++) {
-                    float diff = output[i] - sample.target[i];
-                    error += diff * diff;
-                }
-                epoch_error += error / output.size();
-            }
-            
-            epoch_error /= batch.size();
-            
-            // Periodic evaluation
-            if (epoch % EVAL_INTERVAL == 0) {
-                std::cout << "\nEpoch " << epoch << ":\n";
-                std::cout << "Training error: " << std::scientific << epoch_error << "\n";
-                
-                // Evaluate on test set
-                std::vector<std::vector<float>> predictions;
-                std::vector<std::vector<float>> targets;
-                for (const auto& sample : test_set) {
-                    predictions.push_back(nn.forward(sample.features));
-                    targets.push_back(sample.target);
-                }
-                float current_accuracy = Metrics::accuracy(predictions, targets);
-                
-                // Track best model and implement early stopping
-                if (current_accuracy > best_accuracy) {
-                    best_accuracy = current_accuracy;
-                    epochs_without_improvement = 0;
-                    std::cout << "New best accuracy: " << current_accuracy << "\n";
-                } else {
-                    epochs_without_improvement++;
-                    if (epochs_without_improvement >= 5) {  // No improvement for 500 epochs
-                        learning_rate *= 0.5f;
-                        std::cout << "\nReducing learning rate to: " << learning_rate << "\n";
-                        epochs_without_improvement = 0;
-                    }
-                }
-                
-                evaluate_model(nn, test_set);
-            }
+        // Initialize clients
+        for (size_t i = 0; i < NUM_CLIENTS; i++) {
+            clients.push_back(std::make_unique<FederatedClient>(topology, preprocessor));
         }
         
-        // Final evaluation
-        std::cout << "\nTraining completed. Final evaluation:\n";
-        evaluate_model(nn, test_set);
+        // Get a test sample for evaluation
+        auto test_samples = preprocessor->get_test_set();
+        if (!test_samples.empty()) {
+            const auto& test_sample = test_samples[0];
+            
+            std::cout << "\nTarget values for evaluation:\n";
+            print_vector(test_sample.target, "Target   ");
+            
+            // Federated Learning Rounds
+            for (int round = 0; round < FL_ROUNDS; round++) {
+                std::cout << "\n=== Federated Learning Round " << (round + 1) << " ===\n";
+                
+                // Local training on each client with IID data
+                std::cout << "\nLocal training with " << TRAINING_SAMPLES_PER_ROUND 
+                         << " samples per client (IID distribution)...\n";
+                
+                train_clients_iid(clients, preprocessor, LEARNING_RATE, TRAINING_SAMPLES_PER_ROUND);
+                
+                // Evaluate all clients after training
+                std::cout << "\nPredictions after local training:\n";
+                for (size_t i = 0; i < clients.size(); i++) {
+                    evaluate_client(i, *clients[i], test_sample);
+                }
+                
+                // Weight averaging phase
+                std::cout << "\nAveraging weights across all clients...\n";
+                std::vector<std::vector<float>> client_weights;
+                for (const auto& client : clients) {
+                    client_weights.push_back(client->get_weights());
+                }
+                
+                auto averaged_weights = server.average_weights(client_weights);
+                
+                // Update all clients with averaged weights
+                for (auto& client : clients) {
+                    client->set_weights(averaged_weights);
+                }
+                
+                // Evaluate after weight averaging
+                std::cout << "\nPredictions after weight averaging:\n";
+                evaluate_client(0, *clients[0], test_sample);
+                std::cout << "(All clients now have identical predictions)\n";
+            }
+            std::cout << "\nTarget values for evaluation:\n";
+            print_vector(test_sample.target, "Target   ");
+        }
         
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << "\n";

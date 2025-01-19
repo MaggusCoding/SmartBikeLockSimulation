@@ -2,26 +2,18 @@
 
 Layer::Layer(size_t inputs, size_t outputs) : 
     weights(outputs, std::vector<float>(inputs)),
-    biases(outputs),
     last_outputs(outputs) {
     
-    // Initialize with Xavier/Glorot initialization for sigmoid
+    // Initialize with Xavier/Glorot initialization
     std::random_device rd;
     std::mt19937 gen(rd());
-    // Smaller initial weights for sigmoid to avoid saturation
-    float weight_range = std::sqrt(6.0f / (inputs + weights.size()));
+    float weight_range = std::sqrt(6.0f / (inputs + outputs));
     std::uniform_real_distribution<float> d(-weight_range, weight_range);
     
     for(auto& neuron_weights : weights) {
         for(float& weight : neuron_weights) {
             weight = d(gen);
         }
-    }
-    
-    // Initialize biases to small random values
-    std::uniform_real_distribution<float> bias_dist(-0.1f, 0.1f);
-    for(float& bias : biases) {
-        bias = bias_dist(gen);
     }
 }
 
@@ -39,7 +31,7 @@ std::vector<float> Layer::forward(const std::vector<float>& inputs) {
     last_outputs.resize(weights.size());
     
     for(size_t i = 0; i < weights.size(); i++) {
-        float sum = biases[i];
+        float sum = 0.0f;  // No bias
         for(size_t j = 0; j < weights[i].size(); j++) {
             sum += weights[i][j] * inputs[j];
         }
@@ -49,15 +41,15 @@ std::vector<float> Layer::forward(const std::vector<float>& inputs) {
     return last_outputs;
 }
 
-void Layer::backward(const std::vector<float>& inputs, std::vector<float>& gradients, float learning_rate) {
+void Layer::backward(const std::vector<float>& inputs, 
+                    std::vector<float>& gradients, 
+                    float learning_rate) {
     std::vector<float> next_gradients(inputs.size(), 0.0f);
     
     for(size_t i = 0; i < weights.size(); i++) {
         float delta = gradients[i] * activate_derivative(last_outputs[i]);
         
-        // Update weights and bias
-        biases[i] -= learning_rate * delta;
-        
+        // Update weights
         for(size_t j = 0; j < weights[i].size(); j++) {
             next_gradients[j] += weights[i][j] * delta;
             weights[i][j] -= learning_rate * delta * inputs[j];
@@ -81,7 +73,9 @@ std::vector<float> NeuralNetwork::forward(const std::vector<float>& inputs) {
     return current;
 }
 
-void NeuralNetwork::train(const std::vector<float>& inputs, const std::vector<float>& targets, float learning_rate) {
+void NeuralNetwork::train(const std::vector<float>& inputs, 
+                         const std::vector<float>& targets, 
+                         float learning_rate) {
     // Forward pass
     auto outputs = forward(inputs);
     
@@ -94,7 +88,8 @@ void NeuralNetwork::train(const std::vector<float>& inputs, const std::vector<fl
     // Backward pass
     std::vector<float> current_inputs = inputs;
     for(int i = layers.size() - 1; i >= 0; i--) {
-        layers[i].backward(i == 0 ? inputs : layers[i-1].get_last_outputs(), gradients, learning_rate);
+        layers[i].backward(i == 0 ? inputs : layers[i-1].get_last_outputs(), 
+                         gradients, learning_rate);
     }
 }
 
@@ -116,7 +111,8 @@ void NeuralNetwork::set_flat_weights(const std::vector<float>& weights) {
         size_t outputs = layer.output_size();
         size_t layer_weights = inputs * outputs;
         
-        std::vector<std::vector<float>> layer_weight_matrix(outputs, std::vector<float>(inputs));
+        std::vector<std::vector<float>> layer_weight_matrix(outputs, 
+                                                          std::vector<float>(inputs));
         for(size_t i = 0; i < outputs; i++) {
             for(size_t j = 0; j < inputs; j++) {
                 layer_weight_matrix[i][j] = weights[offset + i * inputs + j];

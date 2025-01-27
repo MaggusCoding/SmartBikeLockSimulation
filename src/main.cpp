@@ -30,26 +30,49 @@ void evaluate_client(size_t client_idx, FederatedClient &client,
     print_vector(pred, "Prediction");
 }
 
-void train_clients_iid(std::vector<std::unique_ptr<FederatedClient>> &clients,
-                       std::shared_ptr<DataPreprocessor> preprocessor,
-                       float learning_rate,
-                       size_t samples_per_client)
+float evaluate_test_set(FederatedClient &client, const std::vector<TrainingSample> &test_set)
 {
-    for (size_t i = 0; i < samples_per_client; i++)
-    {
-        // Get balanced batch
-        auto balanced_batch = preprocessor->get_balanced_batch(3); // 1 sample per class
+    std::vector<std::vector<float>> predictions;
+    std::vector<std::vector<float>> targets;
 
-        if (!balanced_batch.empty())
-        {
-            // Each client gets a random sample from this balanced set
-            for (auto &client : clients)
-            {
-                size_t random_idx = rand() % balanced_batch.size();
-                const auto &sample = balanced_batch[random_idx];
-                client->train_on_sample(sample.features, sample.target, learning_rate);
-            }
-        }
+    // Get predictions for all test samples
+    for (const auto &test_sample : test_set)
+    {
+        predictions.push_back(client.predict(test_sample.features));
+        targets.push_back(test_sample.target);
+    }
+
+    // Calculate and return accuracy
+    return Metrics::accuracy(predictions, targets);
+}
+
+// Usage in main.cpp after FL rounds complete:
+void print_final_evaluation(FederatedClient &client,
+                            const std::vector<TrainingSample> &test_set)
+{
+    float test_accuracy = evaluate_test_set(client, test_set);
+    std::cout << "\nFinal Test Set Evaluation:" << std::endl;
+    std::cout << "Accuracy: " << (test_accuracy * 100.0f) << "%" << std::endl;
+
+    // Get predictions for confusion matrix
+    std::vector<std::vector<float>> predictions;
+    std::vector<std::vector<float>> targets;
+    for (const auto &test_sample : test_set)
+    {
+        predictions.push_back(client.predict(test_sample.features));
+        targets.push_back(test_sample.target);
+    }
+
+    // Calculate and print confusion matrix
+    auto conf_matrix = Metrics::confusion_matrix(predictions, targets);
+    Metrics::print_confusion_matrix(conf_matrix);
+
+    // Calculate and print F1 scores
+    auto f1_scores = Metrics::f1_scores(conf_matrix);
+    std::cout << "\nF1 Scores per class:" << std::endl;
+    for (size_t i = 0; i < f1_scores.size(); i++)
+    {
+        std::cout << "Class " << i << ": " << f1_scores[i] << std::endl;
     }
 }
 
@@ -87,11 +110,11 @@ int main()
         std::vector<size_t> topology = {11, 90, 3};
 
         // Create federated components
-        const size_t NUM_CLIENTS = 1000;
+        const size_t NUM_CLIENTS = 100;
         const size_t TRAINING_SAMPLES_PER_ROUND = 10; // Each client will see this many samples
-        const float LEARNING_RATE = 0.7f;
-        const int FL_ROUNDS = 500;
-        const float CLIENT_FRACTION = 0.01f;
+        const float LEARNING_RATE = 0.5f;
+        const int FL_ROUNDS = 250;
+        const float CLIENT_FRACTION = 0.1f;
 
         FederatedServer server;
         std::vector<std::unique_ptr<FederatedClient>> clients;
@@ -157,6 +180,10 @@ int main()
             }
             std::cout << "\nTarget values for evaluation:\n";
             print_vector(test_sample.target, "Target   ");
+
+            // After FL rounds complete
+            std::cout << "\nPerforming final evaluation..." << std::endl;
+            print_final_evaluation(*clients[0], preprocessor->get_test_set()); // Use first client
         }
     }
     catch (const std::exception &e)

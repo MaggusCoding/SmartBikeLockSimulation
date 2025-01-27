@@ -45,6 +45,20 @@ void train_clients_iid(std::vector<std::unique_ptr<FederatedClient>>& clients,
     }
 }
 
+void train_clients_online(std::vector<std::unique_ptr<FederatedClient>>& clients,
+                       std::shared_ptr<DataPreprocessor> preprocessor,
+                       float learning_rate,
+                       size_t samples_per_client) {
+    // Each client gets its own sequence of samples
+    for (size_t i = 0; i < samples_per_client; i++) {
+        // Each client gets a different sample
+        for (size_t client_idx = 0; client_idx < clients.size(); client_idx++) {
+            TrainingSample sample = preprocessor->get_next_training_sample(client_idx);
+            clients[client_idx]->train_on_sample(sample.features, sample.target, learning_rate);
+        }
+    }
+}
+
 int main() {
     try {
         // Load dataset
@@ -53,24 +67,24 @@ int main() {
         std::cout << "Loaded " << dataset.size() << " samples\n\n";
         
         // Prepare data for training
-        auto preprocessor = std::make_shared<DataPreprocessor>();
+        auto preprocessor = std::make_shared<DataPreprocessor>(42);  // Use consistent seed
         preprocessor->prepare_dataset(dataset);
         
         // Create neural network topology
-        std::vector<size_t> topology = {11, 80, 60, 3};
+        std::vector<size_t> topology = {11, 100, 110, 3};
         
         // Create federated components
-        const size_t NUM_CLIENTS = 1;
-        const size_t TRAINING_SAMPLES_PER_ROUND = 10000;  // Each client will see this many samples
+        const size_t NUM_CLIENTS = 2;
+        const size_t TRAINING_SAMPLES_PER_ROUND = 10;  // Each client will see this many samples
         const float LEARNING_RATE = 0.5f;
-        const int FL_ROUNDS = 1;
+        const int FL_ROUNDS = 1000;
 
         FederatedServer server;
         std::vector<std::unique_ptr<FederatedClient>> clients;
         
         // Initialize clients
         for (size_t i = 0; i < NUM_CLIENTS; i++) {
-            clients.push_back(std::make_unique<FederatedClient>(topology, preprocessor));
+            clients.push_back(std::make_unique<FederatedClient>(topology, preprocessor, 42));
         }
         
         // Get a test sample for evaluation
@@ -87,9 +101,9 @@ int main() {
                 
                 // Local training on each client with IID data
                 std::cout << "\nLocal training with " << TRAINING_SAMPLES_PER_ROUND 
-                         << " samples per client (IID distribution)...\n";
+                         << " samples per client...\n";
                 
-                train_clients_iid(clients, preprocessor, LEARNING_RATE, TRAINING_SAMPLES_PER_ROUND);
+                train_clients_online(clients, preprocessor, LEARNING_RATE, TRAINING_SAMPLES_PER_ROUND);
                 
                 // Evaluate all clients after training
                 std::cout << "\nPredictions after local training:\n";

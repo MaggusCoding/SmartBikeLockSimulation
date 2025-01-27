@@ -1,12 +1,11 @@
 #include "NeuralNetwork/NeuralNetwork.h"
 
-Layer::Layer(size_t inputs, size_t outputs) : 
+Layer::Layer(size_t inputs, size_t outputs, uint32_t seed = 42) : 
     weights(outputs, std::vector<float>(inputs)),
     last_outputs(outputs) {
     
     // Initialize with Xavier/Glorot initialization
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    std::mt19937 gen(seed);
     float weight_range = std::sqrt(6.0f / (inputs + outputs));
     std::uniform_real_distribution<float> d(-weight_range, weight_range);
     
@@ -59,9 +58,10 @@ void Layer::backward(const std::vector<float>& inputs,
     gradients = next_gradients;
 }
 
-NeuralNetwork::NeuralNetwork(const std::vector<size_t>& topology) {
+NeuralNetwork::NeuralNetwork(const std::vector<size_t>& topology, uint32_t seed = 42) {
     for(size_t i = 0; i < topology.size() - 1; i++) {
-        layers.emplace_back(topology[i], topology[i + 1]);
+        // Use seed + i to get different but deterministic initialization per layer
+        layers.emplace_back(topology[i], topology[i + 1], seed + i);
     }
 }
 

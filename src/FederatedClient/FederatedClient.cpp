@@ -2,10 +2,11 @@
 
 FederatedClient::FederatedClient(
     const std::vector<size_t>& topology,
-    std::shared_ptr<DataPreprocessor> preprocessor)
-    : network(topology),
+    std::shared_ptr<DataPreprocessor> preprocessor,
+    uint32_t seed)
+    : network(topology, seed),
       preprocessor(preprocessor),
-      rng(std::random_device{}()) {
+      rng(seed) {
 }
 
 void FederatedClient::train_on_sample(const std::vector<float>& features,

@@ -8,7 +8,7 @@
 
 class Layer {
 public:
-    Layer(size_t inputs, size_t outputs);
+    Layer(size_t inputs, size_t outputs, uint32_t seed);
 
     std::vector<float> forward(const std::vector<float>& inputs);
     void backward(const std::vector<float>& inputs, std::vector<float>& gradients, float learning_rate);
@@ -34,7 +34,7 @@ private:
 
 class NeuralNetwork {
 public:
-    NeuralNetwork(const std::vector<size_t>& topology);
+    NeuralNetwork(const std::vector<size_t>& topology, uint32_t seed);
 
     std::vector<float> forward(const std::vector<float>& inputs);
     void train(const std::vector<float>& inputs, const std::vector<float>& targets, float learning_rate);

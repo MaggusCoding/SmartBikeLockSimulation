@@ -9,7 +9,7 @@
 class FederatedClient {
 public:
     // Initialize with network topology and preprocessor
-    FederatedClient(const std::vector<size_t>& topology, std::shared_ptr<DataPreprocessor> preprocessor);
+    FederatedClient(const std::vector<size_t>& topology, std::shared_ptr<DataPreprocessor> preprocessor, uint32_t seed);
     
     // Core FL operations
     void train_on_random_sample(float learning_rate);

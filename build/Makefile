@@ -249,6 +249,30 @@ src/FederatedServer/FederatedServer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/FederatedServer/FederatedServer.cpp.s
 .PHONY : src/FederatedServer/FederatedServer.cpp.s
 
+src/HPO/HyperParameterOptimizer.o: src/HPO/HyperParameterOptimizer.cpp.o
+.PHONY : src/HPO/HyperParameterOptimizer.o
+
+# target to build an object file
+src/HPO/HyperParameterOptimizer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/HPO/HyperParameterOptimizer.cpp.o
+.PHONY : src/HPO/HyperParameterOptimizer.cpp.o
+
+src/HPO/HyperParameterOptimizer.i: src/HPO/HyperParameterOptimizer.cpp.i
+.PHONY : src/HPO/HyperParameterOptimizer.i
+
+# target to preprocess a source file
+src/HPO/HyperParameterOptimizer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/HPO/HyperParameterOptimizer.cpp.i
+.PHONY : src/HPO/HyperParameterOptimizer.cpp.i
+
+src/HPO/HyperParameterOptimizer.s: src/HPO/HyperParameterOptimizer.cpp.s
+.PHONY : src/HPO/HyperParameterOptimizer.s
+
+# target to generate assembly for a file
+src/HPO/HyperParameterOptimizer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/src/HPO/HyperParameterOptimizer.cpp.s
+.PHONY : src/HPO/HyperParameterOptimizer.cpp.s
+
 src/Metrics/Metrics.o: src/Metrics/Metrics.cpp.o
 .PHONY : src/Metrics/Metrics.o
 
@@ -345,6 +369,9 @@ help:
 	@echo "... src/FederatedServer/FederatedServer.o"
 	@echo "... src/FederatedServer/FederatedServer.i"
 	@echo "... src/FederatedServer/FederatedServer.s"
+	@echo "... src/HPO/HyperParameterOptimizer.o"
+	@echo "... src/HPO/HyperParameterOptimizer.i"
+	@echo "... src/HPO/HyperParameterOptimizer.s"
 	@echo "... src/Metrics/Metrics.o"
 	@echo "... src/Metrics/Metrics.i"
 	@echo "... src/Metrics/Metrics.s"

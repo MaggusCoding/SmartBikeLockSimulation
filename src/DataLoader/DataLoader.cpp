@@ -41,7 +41,6 @@ std::vector<MotionSample> DataLoader::load_dataset(const std::string& metadata_f
         try {
             // Load the corresponding motion data file
             dataset.push_back(load_motion_file(filename, sample_id, timestamp, label));
-            std::cout << "Loaded " << filename << " (Label: " << label << ")\n";
         } catch (const std::exception& e) {
             std::cerr << "Error loading " << filename << ": " << e.what() << "\n";
         }

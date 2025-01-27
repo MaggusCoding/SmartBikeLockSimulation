@@ -1,5 +1,35 @@
 #include "FederatedServer/FederatedServer.h"
 #include <stdexcept>
+#include <algorithm>
+#include <random>
+
+
+FederatedServer::FederatedServer(uint32_t seed) : rng(seed) {}
+
+
+std::vector<size_t> FederatedServer::select_clients(size_t total_clients, float client_fraction) {
+    if (client_fraction <= 0.0f || client_fraction > 1.0f) {
+        throw std::runtime_error("Client fraction must be between 0 and 1");
+    }
+    
+    // Calculate number of clients to select
+    size_t num_selected = std::max(
+        size_t(1), 
+        static_cast<size_t>(total_clients * client_fraction)
+    );
+    
+    // Create vector of all client indices
+    std::vector<size_t> all_clients(total_clients);
+    std::iota(all_clients.begin(), all_clients.end(), 0);
+    
+    // Shuffle and select first num_selected clients
+    std::shuffle(all_clients.begin(), all_clients.end(), rng);
+    
+    return std::vector<size_t>(
+        all_clients.begin(), 
+        all_clients.begin() + num_selected
+    );
+}
 
 std::vector<float> FederatedServer::average_weights(
     const std::vector<std::vector<float>>& client_weights) {

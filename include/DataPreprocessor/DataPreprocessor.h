@@ -18,10 +18,7 @@ public:
     // Process all samples and prepare for training
     void prepare_dataset(const std::vector<MotionSample>& samples);
     TrainingSample get_next_training_sample(size_t client_id);  // Now requires client_id
-    void reset_sampling();  
-    // Get training batches
-    std::vector<TrainingSample> get_training_batch(size_t batch_size);
-    std::vector<TrainingSample> get_balanced_batch(size_t samples_per_class);
+    void reset_sampling();
     
     // Get test set
     std::vector<TrainingSample> get_test_set() const { return test_set; }

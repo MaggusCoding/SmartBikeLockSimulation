@@ -1,4 +1,4 @@
-#pragma once
+/**#pragma once
 
 #include <vector>
 #include <array>
@@ -80,4 +80,4 @@ private:
     std::vector<size_t> samples_per_round;
     std::vector<float> learning_rates;
     std::vector<float> client_fractions;
-};
+};*/

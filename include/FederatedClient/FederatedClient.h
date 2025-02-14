@@ -12,7 +12,6 @@ public:
     FederatedClient(const std::vector<size_t>& topology, std::shared_ptr<DataPreprocessor> preprocessor, uint32_t seed);
     
     // Core FL operations
-    void train_on_random_sample(float learning_rate);
     void train_on_sample(const std::vector<float>& features, 
                         const std::vector<float>& target,
                         float learning_rate);

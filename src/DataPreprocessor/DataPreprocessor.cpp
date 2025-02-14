@@ -11,36 +11,6 @@ DataPreprocessor::DataPreprocessor(uint32_t seed) :
     base_seed(base_seed) {
 }
 
-std::vector<TrainingSample> DataPreprocessor::get_balanced_batch(size_t samples_per_class) {
-    // Split training samples by class
-    std::vector<std::vector<TrainingSample>> samples_by_class(3);
-    for (const auto& sample : training_set) {
-        for (size_t i = 0; i < sample.target.size(); i++) {
-            if (sample.target[i] > 0.5f) {
-                samples_by_class[i].push_back(sample);
-                break;
-            }
-        }
-    }
-    
-    // Create balanced batch
-    std::vector<TrainingSample> batch;
-    for (size_t class_idx = 0; class_idx < 3; class_idx++) {
-        auto& class_samples = samples_by_class[class_idx];
-        std::vector<size_t> indices(class_samples.size());
-        std::iota(indices.begin(), indices.end(), 0);
-        std::shuffle(indices.begin(), indices.end(), rng);
-        
-        for (size_t i = 0; i < samples_per_class && i < indices.size(); i++) {
-            batch.push_back(class_samples[indices[i]]);
-        }
-    }
-    
-    // Final shuffle of the balanced batch
-    std::shuffle(batch.begin(), batch.end(), rng);
-    return batch;
-}
-
 void DataPreprocessor::prepare_dataset(const std::vector<MotionSample>& samples) {
     // Previous feature extraction and normalization code remains the same
     std::vector<TrainingSample> all_samples;
@@ -67,21 +37,6 @@ void DataPreprocessor::prepare_dataset(const std::vector<MotionSample>& samples)
     }
     
     split_train_test(all_samples);
-}
-
-std::vector<TrainingSample> DataPreprocessor::get_training_batch(size_t batch_size) {
-    std::vector<TrainingSample> batch;
-    batch_size = std::min(batch_size, training_set.size());
-    
-    std::vector<size_t> indices(training_set.size());
-    std::iota(indices.begin(), indices.end(), 0);
-    std::shuffle(indices.begin(), indices.end(), rng);
-    
-    for (size_t i = 0; i < batch_size; i++) {
-        batch.push_back(training_set[indices[i]]);
-    }
-    
-    return batch;
 }
 
 std::vector<float> DataPreprocessor::create_one_hot_encoding(int label) {

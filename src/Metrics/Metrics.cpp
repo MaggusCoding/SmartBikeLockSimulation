@@ -3,6 +3,7 @@
 #include <numeric>
 #include <iostream>
 #include <iomanip>
+#include <complex>
 
 float Metrics::accuracy(const std::vector<std::vector<float>>& predictions, 
                        const std::vector<std::vector<float>>& targets) {
@@ -17,6 +18,26 @@ float Metrics::accuracy(const std::vector<std::vector<float>>& predictions,
     }
     
     return static_cast<float>(correct) / pred_classes.size();
+}
+
+float Metrics::cross_entropy_loss(
+    const std::vector<std::vector<float>>& predictions,
+    const std::vector<std::vector<float>>& targets) {
+    
+    float total_loss = 0.0f;
+    const float epsilon = 1e-15f; // To prevent log(0)
+    
+    for (size_t i = 0; i < predictions.size(); i++) {
+        float sample_loss = 0.0f;
+        for (size_t j = 0; j < predictions[i].size(); j++) {
+            // Clip predictions to prevent numerical instability
+            float pred = std::max(std::min(predictions[i][j], 1.0f - epsilon), epsilon);
+            sample_loss -= targets[i][j] * std::log(pred);
+        }
+        total_loss += sample_loss;
+    }
+    
+    return total_loss / predictions.size(); // Return average loss
 }
 
 std::array<std::array<int, 3>, 3> Metrics::confusion_matrix(

@@ -27,6 +27,12 @@ public:
     
     // Pretty print confusion matrix
     static void print_confusion_matrix(const std::array<std::array<int, 3>, 3>& matrix);
+
+    // Calculate cross-entropy loss
+    static float cross_entropy_loss(
+        const std::vector<std::vector<float>>& predictions,
+        const std::vector<std::vector<float>>& targets);
+        
     
 private:
     // Convert probabilities to class predictions

@@ -102,6 +102,7 @@ SmartBikeLockSimulation: CMakeFiles/SmartBikeLockSimulation.dir/rule
 # codegen rule for target.
 CMakeFiles/SmartBikeLockSimulation.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartBikeLockSimulation.dir/build.make CMakeFiles/SmartBikeLockSimulation.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/markus/SmartBikeLockSimulation/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Finished codegen for target SmartBikeLockSimulation"
 .PHONY : CMakeFiles/SmartBikeLockSimulation.dir/codegen
 
 # clean rule for target.
